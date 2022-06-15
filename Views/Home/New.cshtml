@@ -1,0 +1,15 @@
+@model Dish
+
+<h1>Add a new dish!</h1>
+
+<form asp-controller="Home" asp-action="Create" method="POST">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" type="text">
+    
+    <label asp-for="Dish"></label>
+    <input asp-for="Dish" type="text">
+
+    <label asp-for="Calories"></label>
+    <input asp-for="Calories" type="text">
+    
+</form>
