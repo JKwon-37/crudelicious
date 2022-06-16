@@ -21,7 +21,7 @@ public class HomeController : Controller
     }
 
     [HttpGet("dish/{id}")]
-    public IActionResult ViewDish(int id)
+    public IActionResult Details(int id)
     {
         Dish? dish = _context.Dishes.FirstOrDefault(dish => dish.DishId == id);
 
@@ -29,7 +29,7 @@ public class HomeController : Controller
         {
             return RedirectToAction("Index");
         }
-        return View(dish);
+        return View("Details", dish);
     }
 
     [HttpGet("dish/new")]
@@ -94,7 +94,7 @@ public class HomeController : Controller
                 _context.Dishes.Update(dbDish);
                 _context.SaveChanges();
             }
-            return RedirectToAction("ViewDish", id);
+            return Details(id);
         } else
         {
             return EditDish(id);
