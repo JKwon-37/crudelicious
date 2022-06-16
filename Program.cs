@@ -7,10 +7,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<MyContext>(options =>
+builder.Services.AddDbContext<CrudeliciousContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-})
+});
 
 var app = builder.Build();
 

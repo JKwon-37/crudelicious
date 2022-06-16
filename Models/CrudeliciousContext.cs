@@ -8,5 +8,5 @@ public class CrudeliciousContext : DbContext
     public CrudeliciousContext(DbContextOptions options) : base(options) { }
     // the "Dish" table name will come from the DbSet property name
     
-    // public DbSet<Dish> Dishes { get; set; } 
+    public DbSet<Dish> Dishes { get; set; } 
 }

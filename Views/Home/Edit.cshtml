@@ -1,28 +1,28 @@
 @model Dish
 
-<h1>Add a new dish!</h1>
+<h1>Edit @Model.Name</h1>
 
-<form asp-controller="Home" asp-action="Create" method="POST">
+<form asp-controller="Home" asp-action="UpdateDish" asp-route-id="@Model.DishId" method="POST">
     <div class="mb-3">
         <label asp-for="Chef"></label>
         <span class="validation" asp-validation-for="@Model.Chef"></span>
-        <input asp-for="Chef" type="text">
+        <input asp-for="Chef" type="text" value="@Model.Chef">
     </div>
     <div class="mb-3">
         <label asp-for="Name"></label>
         <span class="validation" asp-validation-for="@Model.Name"></span>
-        <input asp-for="Name" type="text">
+        <input asp-for="Name" type="text" value="@Model.Name">
     </div>
     <div class="mb-3">
         <label asp-for="Calories"></label>
         <span class="validation" asp-validation-for="@Model.Calories"></span>
-        <input asp-for="Calories" type="text">
+        <input asp-for="Calories" type="text" value="@Model.Calories">
     </div>
     <div class="mb-3">
         <label asp-for="Tastiness"></label>
         <span class="validation" asp-validation-for="@Model.Tastiness"></span>
         <Select asp-for="Tastiness">
-            <Option></Option>
+            <Option>@Model.Tastiness</Option>
             <Option value="1">1</Option>
             <Option value="2">2</Option>
             <Option value="3">3</Option>
@@ -35,5 +35,5 @@
         <span class="validation" asp-validation-for="@Model.Description"></span>
         <input asp-for="Description" type="text">
     </div>
-    <input class="btn-primary" type="submit" value="Add Dish"/>
+    <input class="btn-primary" type="submit" value="Edit Dish"/>
 </form>

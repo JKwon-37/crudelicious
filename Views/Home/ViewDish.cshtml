@@ -1,0 +1,26 @@
+@model Dish
+
+<h1 class="text-center">@Model.Name</h1>
+<h3 class="text-center">@Model.Chef</h3>
+<br>
+<hr>
+<br>
+<div class="mx-5">
+    <p>@Model.Description</p>
+    <br>
+    <p><strong>Calories: </strong>@Model.Calories</p>
+    <p><strong>Tastiness: </strong>@Model.Tastiness</p>
+</div>
+
+<div class="d-flex mx-5">
+    <form asp-controller="Home" asp-action="DeleteDish" asp-route-id="@Model.DishId" method="POST">
+        <input class="btn-primary" type="submit" value="Delete"/>
+    </form>
+
+    <a
+    class="btn-primary text-decoration-none px-3 text-center align-middle shadow"
+    asp-controller="Home"
+    asp-action="EditDish"
+    asp-route-id="@Model.DishId"
+    >Edit</a>
+</div>
